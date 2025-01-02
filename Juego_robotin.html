@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<style>
+   #square {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            /*border-bottom: 30px solid rgb(255, 221, 0);*/
+            background-color: rgb(255, 221, 0);
+        }
+</style>
+<body>
+    <svg
+   width="1000px"
+   height="1000px"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <!--
+     <rect
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="rect1"
+       width="25.394051"
+       height="16.193308"
+       x="20.609665"
+       y="40.115242" />
+    <path
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="path2"
+       d="M 42.323418,23.185878 16.308672,22.74825 29.695042,0.43763283 Z"
+       transform="translate(4.0483271,18.401487)" />
+    <rect
+       style="fill:#0000ff;stroke-width:0.264583"
+       id="rect1-8"
+       width="25.394051"
+       height="16.193308"
+       x="94.283195"
+       y="132.7393" />
+    <path
+       style="fill:#0000ff;stroke-width:0.264583"
+       id="path2-8"
+       d="M 42.323418,23.185878 16.308672,22.74825 29.695042,0.43763283 Z"
+       transform="translate(77.721858,111.7616)" />
+    <rect
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="rect1-5"
+       width="25.394051"
+       height="16.193308"
+       x="152.76012"
+       y="40.938828" />
+    <path
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="path2-1"
+       d="M 42.323418,23.185878 16.308672,22.74825 29.695042,0.43763283 Z"
+       transform="translate(136.19878,19.225076)" />
+    <rect
+       style="fill:#ffff00;stroke-width:0.264583"
+       id="rect1-52"
+       width="25.394051"
+       height="16.193308"
+       x="18.244333"
+       y="127.37403" />
+    <path
+       style="fill:#ffff00;stroke-width:0.264583"
+       id="path2-7"
+       d="M 42.323418,23.185878 16.308672,22.74825 29.695042,0.43763283 Z"
+       transform="translate(1.6829947,105.66028)" />
+    <path
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="path2-7-6"
+       d="M 41.219328,21.345729 15.204582,20.908101 28.590952,-1.4025161 Z"
+       transform="translate(9.7239407,173.60051)" />
+    <rect
+       style="fill:#ffff00;stroke-width:0.264583"
+       id="rect1-2"
+       width="25.394051"
+       height="16.193308"
+       x="166.93422"
+       y="135.06479" />
+    <path
+       style="fill:#ffff00;stroke-width:0.264583"
+       id="path2-3"
+       d="M 42.323418,23.185878 16.308672,22.74825 29.695042,0.43763283 Z"
+       transform="translate(150.37288,113.35104)" />
+    <rect
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="rect4"
+       width="27.2342"
+       height="23.185873"
+       x="23.921932"
+       y="213.45724" />
+    <rect
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="rect5"
+       width="27.60223"
+       height="19.505569"
+       x="23.921932"
+       y="194.31969" />
+    <rect
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="rect6"
+       width="59.98885"
+       height="20.977694"
+       x="106.3606"
+       y="220.44981" />
+       -->
+  </g>
+</svg>
+
+<div id="container">
+   <div id="square"></div>
+</div>
+
+
+<button onclick="moveFigure('up')">⬆️</button>
+<button onclick="moveFigure('down')">⬇️</button>
+<button onclick="moveFigure('left')">⬅️</button>
+<button onclick="moveFigure('right')">➡️</button>
+
+<script>
+   let Figure = document.getElementById('square');
+   let position = { x: 250, y: 250 }; // Posición inicial del triángulo
+
+   function moveFigure(direction) {
+       const speed = 20; // Velocidad del movimiento
+       let newX = position.x;
+       let newY = position.y;
+       let rotation = 0;
+
+       // Mueve el triángulo según la dirección seleccionada
+       switch (direction) {
+           case 'up':
+               newY -= speed;
+               rotation = 0;
+               break;
+           case 'down':
+               newY += speed;
+               rotation = 180;
+               break;
+           case 'left':
+               newX -= speed;
+               rotation = -90;
+               break;
+           case 'right':
+               newX += speed;
+               rotation = 90;
+               break;
+       }
+
+       // Actualiza la posición y rotación del triángulo
+       position = { x: newX, y: newY };
+       Figure.style.top = `${newY}px`;
+       Figure.style.left = `${newX}px`;
+       Figure.style.transform = `rotate(${rotation}deg)`; // Rota el triángulo
+   }
+</script>
+
+</body>
+</html>
